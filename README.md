@@ -171,3 +171,14 @@ You will need to create a new `.env` file and put it inside your project directo
 ```
 python manage.py runserver
 ```
+
+**To run Albums migration after making model:**
+```
+python manage.py makemigrations albums
+python manage.py sqlmigrate albums 0001
+```
+
+**To enter command line to mess with Models:**
+```
+python manage.py shell
+```

@@ -1,0 +1,8 @@
+<form method="POST" action="/addAlbum">
+	{% csrf_token %}
+	Title: <input type="text" name="title" />
+	<br />
+	Artist: <input type="text" name="artist" />
+	<br />
+	<input type='submit' name='aButton' value='Add Album' />
+</form>
