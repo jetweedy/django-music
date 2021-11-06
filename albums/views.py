@@ -9,6 +9,7 @@ from albums.models import Album
 from django.template import loader
 from .forms import AlbumForm
 from django.shortcuts import render
+from django.utils import timezone
 
 def index(request):
     return HttpResponse("Hello, world. You're at the albums index.")
@@ -33,9 +34,10 @@ def addAlbum(request):
         form = AlbumForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
+            data = form.cleaned_data
+#            return JsonResponse(data)
+            q = Album(title=data['title'], artist=data['artist'], created_at=timezone.now())
+            q.save()
             return HttpResponseRedirect('/getAlbums')
     # if a GET (or any other method) we'll create a blank form
     else:
