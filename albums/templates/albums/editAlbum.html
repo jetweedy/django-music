@@ -1,0 +1,8 @@
+<form method="POST" action="/editAlbum/{{album.id}}">
+	{% csrf_token %}
+	Title: <input type="text" name="title" value="{{album.title}}" />
+	<br />
+	Artist: <input type="text" name="artist" value="{{album.artist}}" />
+	<br />
+	<input type='submit' name='aButton' value='Update Album' />
+</form>
