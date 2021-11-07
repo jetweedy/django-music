@@ -1,5 +1,11 @@
+<p>
+	<a href='/addAlbum'>Add Album</a>
+</p>
+<hr />
 {% for album in albums %}
 	<p>
-		<a href='/editAlbum/{{album.id}}'>{{album.title}}</a>
+		{{album.title}} 
+		<a href='/editAlbum/{{album.id}}'>[Edit]</a>
+		<a href='/deleteAlbum/{{album.id}}'>[Delete]</a>
 	</p>
 {% endfor %}

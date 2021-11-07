@@ -8,4 +8,5 @@ urlpatterns = [
     path('getAlbums', views.getAlbums, name='getAlbums'),
     path('addAlbum', views.addAlbum, name='addAlbum'),
     path('editAlbum/<int:album_id>', views.editAlbum, name='editAlbum'),
+    path('deleteAlbum/<int:album_id>', views.deleteAlbum, name='deleteAlbum'),
 ]

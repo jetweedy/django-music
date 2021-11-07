@@ -1,0 +1,10 @@
+<p>
+	Are you sure you want to delete {{album.title}}?
+</p>
+<p>
+	<a href='/getAlbums'>[Never mind.]</a>
+</p>
+<form method="POST" action="/deleteAlbum/{{album.id}}">
+	{% csrf_token %}
+	<input type='submit' name='aButton' value='Yep, delete Album!' />
+</form>
