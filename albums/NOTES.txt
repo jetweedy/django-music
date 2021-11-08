@@ -1,0 +1,24 @@
+TUTORIAL:
+https://docs.djangoproject.com/en/3.2/intro/tutorial01/
+
+Point of a Server/Framework setup like this:
+ - Provide typical web app lifecycle features
+ - State management, User roles and privileges
+ - Routing
+ - MVC? (MVTemplate... I don't like their explanation)
+ 	 - Models: define types of entities, migrations, DB structure and interaction
+ 	 - Views: Ways of presenting/delivering the data (kind of like the C in MVC??)
+ 	 - Templates: Static structures/skeletons that Views may populate if not delivering directly)
+ - Often handles some of the form-posting round trip logic for you
+ 	- Sometimes thoroughly and automatically
+ 	- Sometimes (Django) semi-automatically in terms of cycle, but not fully
+
+Strategy for getting started and getting ducks in a row:
+ - Set up a Hello World home page route
+ - Set up a sample route that saves something to a collection
+ - Set up a sample route that loads all of those things
+ - Set up a sample route that deletes a thing (by ID)
+
+TO RUN IT (in CMD):
+> pipenv shell
+> python manage.py runserver

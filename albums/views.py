@@ -5,10 +5,10 @@
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
-from albums.models import Album
 from django.template import loader
 from .forms import AlbumForm
 from django.shortcuts import render
+from albums.models import Album
 from django.utils import timezone
 
 def index(request):
@@ -50,18 +50,21 @@ def editAlbum(request, album_id):
 def addAlbum(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = AlbumForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            data = form.cleaned_data
-            q = Album(title=data['title'], artist=data['artist'], created_at=timezone.now())
-            q.save()
-            return HttpResponseRedirect('/getAlbums')
+        ## Simple version:
+        q = Album(title=request.POST['title'], artist=request.POST['artist'], created_at=timezone.now())
+        q.save()
+        return HttpResponseRedirect('/getAlbums')
+        ## Version using Django forms.py functionality
+        #form = AlbumForm(request.POST)
+        #if form.is_valid():
+        #    data = form.cleaned_data
+        #    q = Album(title=data['title'], artist=data['artist'], created_at=timezone.now())
+        #    q.save()
+        #    return HttpResponseRedirect('/getAlbums')
+
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = AlbumForm()
-        return render(request, 'albums/addAlbum.html', {'form': form})
+        return render(request, 'albums/addAlbum.html')
 
 def deleteAlbum(request, album_id):
     album = Album.objects.get(id=album_id)

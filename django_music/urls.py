@@ -22,8 +22,14 @@ from django.urls import include, path
 from albums import views
 
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('demo1', views.demo1, name='demo1'),
+    path('getAlbums', views.getAlbums, name='getAlbums'),
+    path('addAlbum', views.addAlbum, name='addAlbum'),
+    path('editAlbum/<int:album_id>', views.editAlbum, name='editAlbum'),
+    path('deleteAlbum/<int:album_id>', views.deleteAlbum, name='deleteAlbum'),
     # here we're specifying that top level path should use the albums.urls paths
-    path('', include('albums.urls')),
+#    path('', include('albums.urls')),
     # here we're using the default admin site urls path (for django-powered auth mgmt)
     path('admin/', admin.site.urls),
 ]
